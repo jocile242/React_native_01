@@ -9,6 +9,9 @@ import {
     ScrollView
 } from 'react-native';
 
+import Header from "./src/components/Header";
+import Footer from "./src/components/Footer";
+
 const DATA = [
 
     {
@@ -29,26 +32,29 @@ const DATA = [
     },
 ];
 
-const App = () => (
-    <ScrollView style={styles.scrollView}>
+const App = () => {
+    return (
         <SafeAreaView style={styles.container}>
-
-            <SectionList
-                sections={DATA}
-                keyExtractor={(item, index) => item + index}
-                renderItem={({item}) => (
-                    <View style={styles.item}>
-                        <Text style={styles.title}>{item}</Text>
-                    </View>
-                )}
-                renderSectionHeader={({section: {title}}) => (
-                    <Text style={styles.header}>{title}</Text>
-                )}
-            />
+            <Header/>
+                <SectionList
+                    sections={DATA}
+                    keyExtractor={(item, index) => item + index}
+                    renderItem={({item}) => (
+                        <View style={styles.item}>
+                            <Text style={styles.title}>{item}</Text>
+                        </View>
+                    )}
+                    renderSectionHeader={({section: {title}}) => (
+                        <Text style={styles.header}>{title}</Text>
+                    )}
+                />
+            <Footer/>
 
         </SafeAreaView>
-    </ScrollView>
-);
+
+    );
+}
+
 
 const styles = StyleSheet.create({
     container: {
