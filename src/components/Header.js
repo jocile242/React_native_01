@@ -10,9 +10,17 @@ import UseState from "./UseState";
 function Header() {
     const [time, setTime] = useState(new Date());
 
-useEffect()
-    // SET interval + set time = recuperer la nouvelle date
-    // Afficher l'heure
+    useEffect(() => {
+        const interval = setInterval(() => setTime(new Date()), 1000);
+
+        return function () {
+            clearInterval(interval);
+        };
+    }, []);
+
+    const formatTime = (time) => {
+        return time.toLocaleTimeString('fr-FR');
+    };
 
     return (
 
@@ -25,7 +33,7 @@ useEffect()
             }}>
             <View style={{}}/>
             <Text>Header</Text>
-            <UseState time={time}/>
+            <Text>{formatTime(time)}</Text>
         </View>
     );
 
