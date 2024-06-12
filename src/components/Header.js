@@ -2,7 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {
     Button,
     Text,
-    View
+    View,
+    StyleSheet
 } from 'react-native';
 import UseState from "./UseState";
 
@@ -24,13 +25,7 @@ function Header() {
 
     return (
 
-        <View
-            style={{
-                flexDirection: 'row',
-                height: 60,
-                padding: 20,
-                fontSize: 40,
-            }}>
+        <View>
             <View style={{}}/>
             <Text>Header</Text>
             <Text>{formatTime(time)}</Text>
@@ -39,4 +34,18 @@ function Header() {
 
 }
 
+const styles = StyleSheet.create({
+    title: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 16,
+        color: '#340834',
+        textAlign: 'center',
+    },
+
+});
+
+
 export default Header;
+
+
